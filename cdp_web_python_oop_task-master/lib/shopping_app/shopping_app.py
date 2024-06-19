@@ -15,49 +15,49 @@ for i in range(10):
     Item("CPUクーラー", 13400, seller)
     Item("グラフィックボード", 23800, seller)
 
-print("🤖 あなたの名前を教えてください")
+print("🤖 Por favor, dime tu nombre")
 customer = Customer(input())
 
-print("🏧 ウォレットにチャージする金額を入力にしてください")
+print("🏧 Por favor, introduce la cantidad a cargar en tu billetera")
 customer.wallet.deposit(int(input()))
 
-print("🛍️ ショッピングを開始します")
+print("🛍️ Comenzando la compra")
 end_shopping = False
 while not end_shopping:
-    print("📜 商品リスト")
+    print("📜 Lista de productos")
     seller.show_items()
 
-    print("️️⛏ 商品番号を入力してください")
+    print("️️⛏ Por favor, introduce el número del producto")
     number = int(input())
 
-    print("⛏ 商品数量を入力してください")
+    print("⛏ Por favor, introduce la cantidad del producto")
     quantity = int(input())
 
     items = seller.pick_items(number, quantity)
     for item in items:
         customer.cart.add(item)
-    print("🛒 カートの中身")
+    print("🛒 Contenido del carrito")
     customer.cart.show_items()
-    print(f"🤑 合計金額: {customer.cart.total_amount()}")
+    print(f"🤑 Total a pagar: {customer.cart.total_amount()}")
 
-    print("😭 買い物を終了しますか？(yes/no)")
-    end_shopping = input() == "yes"
+    print("😭 ¿Deseas finalizar la compra? (si/no)")
+    end_shopping = input() == "si"
 
-print("💸 購入を確定しますか？(yes/no)")
-if input() == "yes":
+print("💸 ¿Deseas confirmar la compra? (si/no)")
+if input() == "si":
     customer.cart.check_out()
 
-print("୨୧┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈結果┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈୨୧")
-print(f"️🛍️ ️{customer.name}の所有物")
+print("୨୧┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ Resultados ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈୨୧")
+print(f"️🛍️ ️Propiedades de {customer.name}")
 customer.show_items()
-print(f"😱👛 {customer.name}のウォレット残高: {customer.wallet.balance}")
+print(f"😱👛 Saldo en la billetera de {customer.name}: {customer.wallet.balance}")
 
-print(f"📦 {seller.name}の在庫状況")
+print(f"📦 Estado del inventario de {seller.name}")
 seller.show_items()
-print(f"😻👛 {seller.name}のウォレット残高: {seller.wallet.balance}")
+print(f"😻👛 Saldo en la billetera de {seller.name}: {seller.wallet.balance}")
 
-print("🛒 カートの中身")
+print("🛒 Contenido del carrito")
 customer.cart.show_items()
-print(f"🌚 合計金額: {customer.cart.total_amount()}")
+print(f"🌚 Total a pagar: {customer.cart.total_amount()}")
 
-print("🎉 終了")
+print("🎉 Fin del programa")
