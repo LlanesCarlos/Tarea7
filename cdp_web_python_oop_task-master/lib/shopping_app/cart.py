@@ -24,3 +24,5 @@ class Cart:
             item.owner.wallet.deposit(item.price)
             self.owner.wallet.withdraw(item.price)
             item.set_owner(self.owner)
+
+        self.items = []
