@@ -1,4 +1,5 @@
-import ownable
+from ownable import Ownable
+
 class Item:
     instances = []
 
@@ -6,7 +7,7 @@ class Item:
         self.name = name
         self.price = price
         self.set_owner(owner)
-        # Itemインスタンスの生成時、そのItemインスタンス(self)は、insntancesというクラス変数に格納されます。
+        # When an Item instance is created, that Item instance (self) is stored in the class variable instances.
         Item.instances.append(self)
 
     def label(self):
@@ -14,5 +15,8 @@ class Item:
 
     @staticmethod
     def item_all():
-        # instancesを返します ==> Item.item_all()でこれまでに生成されたItemインスタンスを全て返すということです。
+        # Returns instances ==> Item.item_all() returns all Item instances created so far.
         return Item.instances
+    
+    def set_owner(self, owner):
+            self.owner = owner
