@@ -1,4 +1,3 @@
-import ownable
 class Wallet:
 
     def __init__(self, owner):
@@ -13,3 +12,6 @@ class Wallet:
             return
         self.balance -= int(amount)
         return amount
+
+    def set_owner(self, owner):
+            self.owner = owner
